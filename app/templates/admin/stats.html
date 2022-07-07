@@ -1,0 +1,110 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<h1 class="text-danger">THỐNG KÊ BÁO CÁO DOANH THU</h1>
+<div class="space" style="margin-bottom: 120px;"></div>
+<div class="row">
+    <div class="col-md-7 col-sx-12">
+        <h1>Bảng thống kê tỉ lệ vé bán được</h1>
+        <table class="table">
+            <tr>
+                <th>Mã Chuyến Bay</th>
+                <th>Dịch Vụ</th>
+                <th>Tổng Số Vé</th>
+                <th>Số Vé Bán Được</th>
+                <th>Tỉ Lệ</th>
+            </tr>
+            {% for s in stats_flight %}
+                <tr>
+                    <th> {{ s[0] }}</th>
+                    <th> {{ s[1] }}</th>
+                    <th> {{ s[2] }}</th>
+                    <th> {{ s[3] }}</th>
+                    <th> {% if s[4] %} {{ s[4] }} {% else %}  0 {% endif%} % </th>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
+
+<div class="space" style="margin-bottom: 120px;"></div>
+<div class="row">
+    <h1>Bảng thống kê theo doanh thu chuyến bay</h1>
+    <div class="col-md-5 col-sx-12">
+        <table class="table">
+            <tr>
+                <th>Mã Vé</th>
+                <th>Mã Chuyến Bay</th>
+                <th>Mã Dịch Vụ</th>
+                <th>Tổng Doanh Thu</th>
+            </tr>
+            {% for s in stats %}
+                <tr>
+                    <th> {{ s[0] }}</th>
+                    <th> {{ s[1] }}</th>
+                    <th> {{ s[2] }}</th>
+                    <th> {% if s[3] %} {{ s[3] }} {% else %}  0 {% endif%} VND </th>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-md-7 col-sx-12">
+        <form action="/admin/statsview/">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label >Thời gian bắt đầu</label>
+                    <input type="date" name="from_date" placeholder="Thời gian bắt đầu..." class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label >Thời gian kết thúc</label>
+                    <input type="date" name="to_date" placeholder="Thời gian kết thúc..." class="form-control" />
+                </div>
+            </div>
+
+            <input type="submit" value="Thống kê" class="btn btn-danger" />
+        </form>
+        <canvas id="catStatsId"></canvas>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+let labels = [], info = [];
+
+{% for c in stats %}
+     {% if c[3] %}
+         labels.push('Mã cb:{{ c[1] }} DV: {{c[2]}}')
+         info.push({{c[3]}})
+     {% endif %}
+{% endfor %}
+
+
+let colors = []
+for (let i = 0; i < labels.length; i++) {
+    let r = parseInt(Math.random() * 255)
+    let g = parseInt(Math.random() * 255)
+    let b = parseInt(Math.random() * 255)
+    colors.push(`rgb(${r}, ${g}, ${b})`)
+}
+
+const data = {
+  labels: labels,
+  datasets: [{
+    label: 'Thống kê doanh thu theo chuyến bay và dịch vụ',
+    data: info,
+    backgroundColor: colors,
+    hoverOffset: 4
+  }]
+};
+
+const config = {
+  type: 'bar',
+  data: data,
+};
+
+window.onload = function() {
+    let ctx = document.getElementById('catStatsId').getContext('2d')
+    new Chart(ctx, config);
+}
+</script>
+{% endblock %}

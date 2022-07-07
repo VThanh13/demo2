@@ -1,0 +1,67 @@
+{% extends 'layout/layout_user/base.html' %}
+{% block title %}
+	ĐĂNG NHẬP
+{% endblock %}
+
+{% block header %}
+	<div class="header-top">
+		<div class="wrap wrap--flex">
+		   <div class="logo">
+			   <a href="/" class="text-white">
+				   <i class="fas fa-plane-departure mr-0-5"></i>
+				   BUG AIRLINES
+			   </a>
+		   </div>
+		   <div class="cssmenu">
+		   </div>
+		   <div class="clear"></div>
+		</div>
+	  </div>
+{% endblock %}
+
+{% block content %}
+<div class="login">
+          <div class="wrap">
+				<div class="col_1_of_login span_1_of_login">
+					<h4 class="title">Bạn là khách hàng mới?</h4>
+					<h5 class="sub_title">Đăng kí tài khoản</h5>
+					<p>Chào mừng bạn là thành viên mới của gia đình Vietnam Airline. Trở thành thành viên để có thể nhận thêm nhiều ưu đãi.</p>
+					<div class="button1">
+					   <a href="/register"><input type="submit" name="Submit" value="ĐĂNG KÍ TÀI KHOẢN"></a>
+					 </div>
+					 <div class="clear"></div>
+				</div>
+				<div class="col_1_of_login span_1_of_login">
+				  <div class="login-title">
+	           		<h4 class="title">Đăng nhập</h4>
+					  {% if error_message %}
+					  	<div class="alert alert-danger">
+							{{ error_message }}
+						</div>
+					  {% endif %}
+					 <div class="comments-area">
+						<form  method="post">
+							<p>
+								<label for="username">Tên tài khoản</label>
+								<span>*</span>
+								<input type="text" id="username" name="username" placeholder="Tài khoản" required autofocus>
+							</p>
+							<p>
+								<label for="password">Mật khẩu</label>
+								<span>*</span>
+								<input type="password"  id="password" name="password" placeholder="Mật khẩu" required>
+							</p>
+							 <p id="login-form-remember">
+								<label><a href="#">Quên mật khẩu ? </a></label>
+							 </p>
+							 <p>
+								<input type="submit" value="Đăng nhập">
+							</p>
+						</form>
+					</div>
+			      </div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'layout/layout_user/base.html' %}
+
+{% block title %}CHINH SUA THONG TIN{% endblock %}
+
+{% block content %}
+          <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row ">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5 img_user-big" width="150px" src="{{current_user.avatar}}">
+                    <span class="font-weight-bold">{{ current_user.fullname }}</span>
+                    <span class="text-black-50">{{ current_user.email}}</span><span> </span>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <div class="p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Chỉnh sửa thông tin</h4>
+                    </div>
+                    {% if error_message %}
+					  	<div class="alert alert-danger">
+							{{ error_message }}
+						</div>
+					  {% endif %}
+                    {% if success_message %}
+					  	<div class="alert alert-info">
+							{{ success_message }}
+						</div>
+					  {% endif %}
+                    <div class="desc">
+                        <form action="/user-load-update" method="post" enctype="multipart/form-data">
+                            <div class="mb-12">
+                                <lable class="w120">Họ tên</lable>
+                                <input type="text" value="{{ current_user.fullname }}" name="fullname" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">Ngày sinh</lable>
+                                <input type="date" value="{{current_user.birthday }}" name="birthday" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">CMND/ Căn cước</lable>
+                                <input type="text" value="{{ current_user.identify }}" name="identify" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">Số điện thoại</lable>
+                                <input type="text" value="{{ current_user.phone }}" name="phone" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">Email</lable>
+                                <input type="text" value="{{ current_user.email }}" name="email" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn btn-save" value="Lưu Thay Đổi">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

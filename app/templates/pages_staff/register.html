@@ -1,0 +1,84 @@
+{% extends 'layout/layout_staff/base.html'%}
+
+
+{% block content %}
+
+
+
+    <div id="page-wrapper" class="gray-bg dashbard-1">
+    <div class="content-main"> 
+		<div id="booking" class="section">
+			<div class="section-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="booking-cta">
+								<h1>Đăng kí khách hàng</h1>
+								<p>Đi nhanh an toàn - Khởi hành bình an</p>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<div class="booking-form">
+								{% if error_message %}
+					<div class="alert alert-danger">
+						{{ error_message }}
+					</div>
+
+				{% endif %}
+
+								<form action="/staff-register-user" method="post" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Họ Tên</span>
+												<input name="fullname" class="form-control" type="text" placeholder="Họ tên">
+											</div>
+										</div>
+
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Ngày sinh</span>
+                                                <input name="birthday" class="form-control" type="date" required>
+                                            </div>
+                                        </div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Email</span>
+												<input name="email" class="form-control" type="email" placeholder="Email">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">CMND/Căn cước</span>
+												<input name="identify" class="form-control" type="text" placeholder="CMND/Căn cước">
+											</div>
+										</div>
+									</div>
+                                    <div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Số điện thoại</span>
+												<input name="phone" class="form-control" type="text" placeholder="Số điện thoại">
+											</div>
+										</div>
+
+									</div>
+
+
+									<div class="form-btn">
+										<button class="submit-btn" type="submit">Đăng Kí</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    </div>
+<!---->
+{% endblock %}
+

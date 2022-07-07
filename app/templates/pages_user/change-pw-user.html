@@ -1,0 +1,54 @@
+{% extends 'layout/layout_user/base.html' %}
+
+{% block title %}CHINH SUA THONG TIN{% endblock %}
+
+{% block content %}
+          <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row ">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <img class="rounded-circle mt-5 img_user-big" width="150px" src="{{current_user.avatar}}">
+                    <span class="font-weight-bold">{{ current_user.fullname }}</span>
+                    <span class="text-black-50">{{ current_user.email }}</span><span> </span>
+                </div>
+            </div>
+            <div class="col-md-9 ">
+                <div class="p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Thay đổi mật khẩu</h4>
+                    </div>
+                    {% if error_message %}
+					  	<div class="alert alert-danger">
+							{{ error_message }}
+						</div>
+					  {% endif %}
+                    {% if success_message %}
+					  	<div class="alert alert-info">
+							{{ success_message }}
+						</div>
+					  {% endif %}
+                    <div class="desc">
+                        <form action="/user-update-pw" method="post">
+                            <div class="mb-12">
+                                <lable class="w120">Mật khẩu cũ</lable>
+                                <input type="password"  name="password" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">Mật khẩu mới</lable>
+                                <input type="password" name="new_password" required>
+                            </div>
+                            <div class="mb-12">
+                                <lable class="w120">Xác nhận mật khẩu mới</lable>
+                                <input type="password"  name="confirm_password" required>
+                            </div>
+                            <div>
+                                <input type="submit" class="btn btn-save" value="Lưu Thay Đổi ">
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

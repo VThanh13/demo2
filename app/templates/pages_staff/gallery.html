@@ -1,0 +1,70 @@
+{% extends 'layout/layout_staff/base.html'%}
+
+
+{% block content %}
+        <!----->
+   	<div id="page-wrapper" class="gray-bg dashbard-1">
+			
+			<div class="content-main">
+
+
+				<div class="gallery">
+					<h1>DANH SÁCH CHUYẾN BAY</h1>
+					{% if get_flight %}
+					{% for p in get_flight %}
+						{% if p.is_show %}
+							<div class="col-md">
+						<div class="gallery-img">
+						<a href="images/ga.jpg" class="b-link-stripe b-animate-go  swipebox"  title="Image Title" >
+						  <img class="img-responsive " src="https://th.bing.com/th/id/R.07df38e3705fe923de7017db119483bd?rik=tXKTGutv7%2b6zYQ&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" />
+							  <span class="zoom-icon"> </span> </a>
+					  </a>
+					  </div>
+						<div class="text-gallery">
+							<h6>Nơi đi: {{p.from}}</h6>
+							<h6>Nơi đến: {{p.to}}</h6>
+							<p>Ngày bay: {{p.date_start}}</p>
+							<p>Giá vé: {{p.price}}</p>
+							<p>Đặt vé</p>
+							<div class="ct-btn">
+							<a class="book-btn" href="/staff-flight?id={{ p.flight_id }}vaVIP"
+							style="flex: 1"
+
+							>Thương Gia</a>
+								<a class="book-btn" href="/staff-flight?id={{ p.flight_id }}vaNormal"
+									style="flex: 1; align-items: center;"
+								>Phổ Thông</a>
+							</div>
+						</div>
+					</div>
+						{% endif %}
+
+                 {% endfor %}
+					{% else %}
+					<div class="bg-info" >
+						<h3 class="text-white">Không có chuyền bay hợp lệ !!!</h3>
+						<a href="/staff"> Quay lại trang tìm kiếm	</a>
+
+					</div>
+					{% endif %}
+					 <div class="clearfix"> </div>
+
+				</div>
+
+			 </div>
+			 <div class="clearfix"> </div>
+			</div>
+		<div class="clearfix"> </div>
+       </div>
+     
+<!---->
+<link rel="stylesheet" href="css/swipebox.css">
+	<script src="js/jquery.swipebox.min.js"></script> 
+	    <script type="text/javascript">
+			jQuery(function($) {
+				$(".swipebox").swipebox();
+			});
+</script>
+<!--scrolling js-->
+{% endblock %}
+

@@ -1,0 +1,112 @@
+{% extends 'layout/layout_staff/base.html' %}
+
+{% block title %}GIO HANG{% endblock %}
+
+{% block content %}
+
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+	<div class="content-main">
+		<div id="booking" class="section">
+			<div class="wrap">
+			<div class="cart-title">
+				<h3 class="m_6" >CHI TIẾT ĐẶT VÉ</h3>
+			</div>
+             {% if not session.get('cart') %}
+                <div style="padding: 12px;" class="text-white bg-info">
+                    <h1 >Không có chuyến bay nào được đặt!!!</h1>
+
+                </div>
+			 <div class="tot-btn">
+				 <a class="shop" href="/staff">Tiếp tục đặt vé</a>
+			 </div>
+            {% else %}
+			<div class="cart staff-cart">
+				<div class="cart-top">
+					  <div class="cart-experience">
+						   <h4>Chi Tiết Đặt Vé</h4>
+					  </div>
+					 <div class="clear"> </div>
+				</div>
+				<div class="cart-bottom">
+					 <div class="table">
+						 <table class="table">
+							 <tbody>
+							   <tr  class="main-heading">
+								  <th>Khách hàng</th>
+								  <th class="long-txt">Chuyến bay</th>
+								   <th class="long-txt">Số lượng</th>
+								  <th>Giá</th>
+								  <th>Tổng</th>
+							  </tr>
+                               {% for item in session['cart'].values() %}
+							        <tr class="cake-top">
+								  <td class="cake-text" style="width: 320px">
+									  	<div class="product-text" style="font-size: 20px">
+										  <h3>Họ Tên: {{ get_customer.fullname }}</h3>
+										  <p>CMDN: {{ get_customer.identify }}</p>
+										  <p>Số điện thoại: {{ get_customer.phone }}</p>
+									  </div>
+							   </td>
+								 <td class="cake-text" style="width: 320px">
+									  <div class="product-text" style="font-size: 20px">
+										  <h3>Nơi đi: {{item.from }}</h3>
+										  <h3>Nơi đến: {{ item.to }}</h3>
+										  <p>Ngày bay: {{ item.date_start }}</p>
+										  <p>Thời gian: {{ item.time_start }}</p>
+										  <p>Máy bay: VN300</p>
+										  <p>Ghế: A-12</p>
+									  </div>
+							   </td>
+								<td class="price" style="width: 100px">
+									<input type="number"
+                       					value="{{ item.quantity }}"
+                       					onchange="updateCartItem(this, {{ item.flight_id }})"
+                       					class="form-control" />
+								</td>
+								  <td class="price" style="width: 180px" >
+									  <h4 id="price-ticket-{{ item.flight_id }}">{{ item.price_total }} </h4> <h5>VND</h5>
+								  </td>
+								  <td class="top-remove" style="width: 180px">
+									  <h4 id="total-ticket-{{ item.flight_id }}">{{ item.price_total }} </h4> <h5>VND</h5>
+								  </td>
+
+							  </tr>
+                                {% endfor %}
+
+							</tbody>
+						 </table>
+					 </div>
+                    {% if session.get('cart') %}
+                        <div class="vocher">
+						    <div class="dis-total">
+                                <h1>Tổng số vé: <span id="cart-quantity"></span></h1>
+							    <h1>Tổng tiền: <span id="cart-amount"></span> VND</h1>
+
+
+								<h1>Tiền khách hàng đưa: <input type="text" id="cart-money" onblur="checkPay()" class="cart-money">VND</h1>
+							    <h1>Tiền trả khách hàng: <span id="cart-excess"></span> VND</h1>
+							        <div class="tot-btn">
+								        <a class="check" href="/staff-cart" id="buy_now_btn" onclick="staffPay()">Thanh Toán</a>
+							        </div>
+						    </div>
+					    <div class="clear"> </div>
+					 </div>
+                    {% endif %}
+				</div>
+			 </div>
+             {% endif %}
+    	   </div>
+		</div>
+	</div>
+</div>
+<!--<script src="https://js.stripe.com/v3/"></script>-->
+
+<!--      <script>-->
+<!--        const checkout_public_key = '{{checkout_public_key}}';-->
+<!--        const checkout_session_id = '{{checkout_session_id}}';-->
+<!--      </script>-->
+
+<!--      <script src="{{ url_for('static', filename='js/script-ajax.js') }} "></script>-->
+<script src="static/js/script.js"></script>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends 'layout/layout_user/base.html' %}
+{% block title %}
+	TRANG CHỦ
+{% endblock %}
+
+{% block content %}
+       <div class="single" onmouseover="changePrice()">
+         <div class="wrap">
+			<h1 class="m_6 title_page">Chi tiết chuyến bay</h1>
+		<div class="cont span_2_of_3">
+			{% for p in get_flight %}
+			  <div class="labout span_1_of_a1">
+				<!-- start product_slider -->
+				     <ul id="etalage">
+							<li>
+								<a href="optionallink.html">
+									<img class="etalage_source_image" src="{{ url_for('static', filename=p.image) }}" />
+								</a>
+							</li>
+						</ul>
+			<!-- end product_slider -->
+			</div>
+			<div class="cont1 span_2_of_a1">
+				<h3 class="m_4">Nơi đi: {{ p.from }}</h3>
+				<h3 class="m_4">Nơi đến: {{ p.to }}</h3>
+				<p class="m_3">Ngày bay: {{ p.date_start }} {{ p.time_start }}</p>
+				{% if p.airport_support|length > 0 %}
+					{% for o in p.airport_support %}
+						<p class="m_3">Sân bay trung gian {{ o.stt }}: {{ o.ap_name }} -  Thời gian dừng: {{ o.time }} phút</p>
+					{% endfor %}
+				{% else %}
+				<p class="m_3">Sân bay trung gian: 0</p>
+				{% endif %}
+				<ul class="options">
+					<h4 class="m_9">Lựa chọn</h4>
+					<li><input type="radio" name="option" id="watch-tg">
+						<label for="watch-tg" id="service-tg"><span>Thương gia</span></label>
+					</li>
+					<li><input type="radio" name="option" id="watch-pt">
+						<label for="watch-pt" id="service-pt"><span>Phổ thông</span></label>
+					</li>
+					<div class="clear"></div>
+				</ul>
+				<div class="price_single">
+					<span class="" >Giá chuyến bay: {{ p.price }} VND</span>
+					<span class="" >Giá dịch vụ: {{ p.price_service }} VND</span>
+					<span class="actual" id="flight-price"> Tổng giá vé: {{ p.price_total }} VND</span>
+				</div>
+				<div class="btn_form">
+					<div class="btn_form">
+					<a class="btn__confirm" href="javascript:;"
+					   onclick="addToCart( {{p.flight_id}},{{ p.type_id }} ,'{{ p.type_name }}', '{{p.from}}', '{{ p.to }}'
+							  	, {{ p.date_start }}, '{{ p.time_start }}', {{ p.ticket_id }}, {{ p.price }}, {{ p.price_service }}, {{ p.price_total }})"
+					>
+						Đặt vé
+					</a>
+				</div>
+				</div>
+				{% endfor %}
+    			<p class="m_desc">Tự hào là hãng hàng không số 1 Việt Nam</p>
+
+                <div class="social_single">
+				   <ul>
+					  <li class="fb"><a href="#"><span> </span></a></li>
+					  <li class="tw"><a href="#"><span> </span></a></li>
+					  <li class="g_plus"><a href="#"><span> </span></a></li>
+					  <li class="rss"><a href="#"><span> </span></a></li>
+				   </ul>
+			    </div>
+			</div>
+
+			<div class="clear"></div>
+
+
+			<div>
+				<h1>Chuyến bay VIP</h1>
+			</div>
+         <ul id="flexiselDemo3">
+
+			 {% for p in getall_flight %}
+
+				 <li>
+					 <a href="/flight?flight={{ p.flight_id }}&type=VIP">
+					 <img src="{{ url_for('static', filename=p.image) }}" />
+				<div class="grid-flex">
+					<h6>{{ p.from }} đến {{ p.to }} </h6>
+					<h6>{{ p.price }} VND</h6>
+
+				</div>
+					 </a>
+				</li>
+
+
+			 {% endfor %}
+			</ul>
+	    <script type="text/javascript">
+		 $(window).load(function() {
+			$("#flexiselDemo1").flexisel();
+			$("#flexiselDemo2").flexisel({
+				enableResponsiveBreakpoints: true,
+		    	responsiveBreakpoints: {
+		    		portrait: {
+		    			changePoint:480,
+		    			visibleItems: 1
+		    		},
+		    		landscape: {
+		    			changePoint:640,
+		    			visibleItems: 2
+		    		},
+		    		tablet: {
+		    			changePoint:768,
+		    			visibleItems: 3
+		    		}
+		    	}
+		    });
+
+			$("#flexiselDemo3").flexisel({
+				visibleItems: 5,
+				animationSpeed: 1000,
+				autoPlay: true,
+				autoPlaySpeed: 3000,
+				pauseOnHover: true,
+				enableResponsiveBreakpoints: true,
+		    	responsiveBreakpoints: {
+		    		portrait: {
+		    			changePoint:480,
+		    			visibleItems: 1
+		    		},
+		    		landscape: {
+		    			changePoint:640,
+		    			visibleItems: 2
+		    		},
+		    		tablet: {
+		    			changePoint:768,
+		    			visibleItems: 3
+		    		}
+		    	}
+		    });
+
+		});
+	</script>
+	<script type="text/javascript" src="/static/js/jquery.flexisel.js"></script>
+	 <div class="toogle">
+     	<h3 class="m_3">Khách hàng là vàng</h3>
+     	<p class="m_text">Với cống hiến 1000 năm, tôi tôi đảm bảo mang lại cho quý khách một cảm giác thoải mái nhất, trải nghiệm tuyệt vời nhất.</p>
+     </div>
+     </div>
+     <div class="clear"></div>
+	 </div>
+     </div>
+{% endblock %}

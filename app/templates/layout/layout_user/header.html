@@ -1,0 +1,56 @@
+ <div class="header-top">
+	 <div class="wrap wrap--flex">
+		<div class="logo">
+			<a href="/" class="text-white">
+				<i class="fas fa-plane-departure mr-0-5"></i>
+				BUG AIRLINES
+			</a>
+	    </div>
+	    <div class="cssmenu">
+		   <ul>
+			   {% if current_user.is_authenticated %}
+					<li class="active"><a href="/logout">Đăng xuất</a></li>
+			   		<li><a href="/user?id={{current_user.id}}">Tài khoản của tôi (<span class="text-title">{{current_user.fullname}}
+						{% if current_user.avatar %}
+							<img src="{{current_user.avatar}}" alt=""  class="img__user">
+						{% endif %}
+					</span>)</a></li>
+			 		<li><a href="/cart">Giỏ Hàng
+						<span class="badge badge-danger" id="cartCounter">0</span>
+					</a></li>
+			   		<ul class="icon2 sub-icon2 profile_img">
+					<li><a class="active-icon c2" href="#"> </a></li>
+					<ul class="sub-icon2 list">
+						<li><h3>Vé</h3><a href=""></a></li>
+						<li><p>Thanh toán<a href="##">tại đây</a></p></li>
+					</ul>
+			</ul>
+			   {% else %}
+			   		<li class="active"><a href="/login">Đăng nhập</a></li>
+			   {% endif %}
+		   </ul>
+		</div>
+		<div class="clear"></div>
+ 	</div>
+   </div>
+   <div class="header-bottom">
+   		<div class="wrap wrap--flex">
+   		<!-- start header menu -->
+		<ul class="megamenu skyblue">
+			<li>
+				<a class="color1" href="/">Trang chu</a></li>
+			<li class="grid">
+				<a class="color2" href="#">San bay</a>
+			</li>
+			<li class="active grid">
+				<a class="color4" href="#">Chuyen bay</a>
+			</li>
+		</ul>
+			<form class="form-inline md-form mr-auto mb-4" style="display: contents;" action="/search">
+				<input class="form-control mr-sm-2" type="text" placeholder="Nhap noi di..." aria-label="Search" name="kw1" required>
+				<input class="form-control mr-sm-2" type="text" placeholder="Nhap noi den..." aria-label="Search" name="kw2" required>
+				<button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Tim kiem</button>
+			</form>
+			<div class="clear"></div>
+    	</div>
+    </div>

@@ -1,0 +1,163 @@
+{% extends 'layout/layout_user/base.html' %}
+{% block title %}
+	TRANG CHỦ
+{% endblock %}
+
+{% block content %}
+      <div class="index-banner" style="margin-top: 60px">
+			<div class="wmuSlider example1" style="height: 560px;">
+			  <div class="wmuSliderWrapper">
+				  {% for p in flights %}
+				  {% if p['active'] == True %}
+				  		<article style="position: absolute; width: 100%; opacity: 0;">
+				   	 	<div class="banner-wrap">
+					   		<div class="slider-left">
+								<img src="static/images/OIP.jpg" alt=""/>
+							</div>
+							<div class="slider-right">
+						    	<h2>{{ p.from }}</h2>
+								<span class="font-12">đi</span>
+						    	<h2>{{ p.to }}</h2>
+
+						    	<span class="font-12">{{ p.price }} VND</span>
+						    	<div class="btn"><a href="/flight?flight={{ p.flight_id }}&?type=VIP">Đặt vé VIP</a></div>
+						 	</div>
+						 <div class="clear"></div>
+					 </div>
+				   </article>
+				  {% endif %}
+				  {% endfor %}
+				</div>
+                <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a>
+                <ul class="wmuSliderPagination">
+                	<li><a href="#" class="">0</a></li>
+                	<li><a href="#" class="">1</a></li>
+                	<li><a href="#" class="wmuActive">2</a></li>
+                	<li><a href="#">3</a></li>
+                	<li><a href="#">4</a></li>
+                  </ul>
+                 <a class="wmuSliderPrev">Previous</a><a class="wmuSliderNext">Next</a><ul class="wmuSliderPagination"><li><a href="#" class="wmuActive">0</a></li><li><a href="#" class="">1</a></li><li><a href="#" class="">2</a></li><li><a href="#" class="">3</a></li><li><a href="#" class="">4</a></li>
+				</ul>
+			</div>
+            	 <script src="static/js/jquery.wmuSlider.js"></script>
+				 <script type="text/javascript" src="static/js/modernizr.custom.min.js"></script>
+						<script>
+       						 $('.example1').wmuSlider();
+   						</script>
+             </div>
+
+
+    <div class="main">
+				 <div class="wrap">
+             	  <div class="content-top">
+             		<div class="lsidebar span_1_of_c1">
+					  <p>Theo dõi chúng tôi tại</p>
+					</div>
+					<div class="cont span_2_of_c1">
+					  <div class="social">
+					     <ul>
+						  <li class="facebook"><a href="##"><span> </span></a><div class="radius"> <img src="static/images/radius.png"><a href="#"> </a></div><div class="border hide"><p class="num">1.51K</p></div></li>
+						 </ul>
+			   		   </div>
+					   <div class="social">
+						   <ul>
+							  <li class="twitter"><a href="##"><span> </span></a><div class="radius"> <img src="static/images/radius.png"></div><div class="border hide"><p class="num">1.51K</p></div></li>
+						  </ul>
+			     		</div>
+						 <div class="social">
+						   <ul>
+							  <li class="google"><a href="##"><span> </span></a><div class="radius"> <img src="static/images/radius.png"></div><div class="border hide"><p class="num">1.51K</p></div></li>
+						   </ul>
+			    		 </div>
+						 <div class="social">
+						   <ul>
+							  <li class="dot"><a href="##"><span> </span></a><div class="radius"> <img src="static/images/radius.png"></div><div class="border hide"><p class="num">1.51K</p></div></li>
+						  </ul>
+			     		</div>
+						<div class="clear"> </div>
+					  </div>
+					  <div class="clear"></div>
+				   </div>
+				  <div class="content-bottom">
+					  <h1 class="text-center text-info" xmlns="http://www.w3.org/1999/html"
+                		style="width: 100%; padding: 2rem 3rem;
+                		background-color: rgba(242, 242, 242, 0.5);
+                		margin: 50px 0">
+                		Chuyến bay
+					  </h1>
+					  <ul class="pagination">
+                		{% for i in range(1, page_num+1) %}
+                    		<li class="page-item"><a class="page-link" href="/?page={{ i }}">{{ i }}</a></li>
+                		{% endfor %}
+					  </ul>
+					  {% if not flights_filter %}
+					<div class="alert alert-info">
+    				Không có chuyến bay nào
+					</div>
+					{% endif %}
+				   <div class="box1">
+				    	{% for p in flights_filter %}
+					   		{% if p['active'] == True %}
+					   			<div class="col_1_of_3 span_1_of_3">
+								<a href="##">
+				     			<div class="view view-fifth">
+				  	  			<div class="top_box">
+									<h3 class="m_1">Nơi đi: {{ p.from }}</h3>
+									<h3 class="m_1">Nơi đến: {{ p.to }}</h3>
+									<h3 class="m_1">Ngày bay: {{ p.date_start }} </br>
+										Giờ bay: {{ p.time_start }}
+									</h3>
+					  				<p class="m_2">Vietnam Airlines</p>
+					    			<div class="grid_img">
+						   			<div class="css3"><img src="{{ url_for('static', filename=p.image) }}" alt=""/></div>
+					          			<div class="mask">
+	                       					<div class="info">Chi Tiet</div>
+			                  			</div>
+	                    			</div>
+                       				<div class="price">{{ p.price }} VND</div>
+					  			 </div>
+					    		</div>
+					   <span class="rating">
+				        <input type="radio" class="rating-input" id="rating-input-1-5" name="rating-input-1">
+				        <label for="rating-input-1-5" class="rating-star1"></label>
+				        <input type="radio" class="rating-input" id="rating-input-1-4" name="rating-input-1">
+				        <label for="rating-input-1-4" class="rating-star1"></label>
+				        <input type="radio" class="rating-input" id="rating-input-1-3" name="rating-input-1">
+				        <label for="rating-input-1-3" class="rating-star1"></label>
+				        <input type="radio" class="rating-input" id="rating-input-1-2" name="rating-input-1">
+				        <label for="rating-input-1-2" class="rating-star"></label>
+				        <input type="radio" class="rating-input" id="rating-input-1-1" name="rating-input-1">
+				        <label for="rating-input-1-1" class="rating-star"></label>&nbsp;
+		        	  (45)
+		    	      </span>
+						 <ul class="list">
+						  <li>
+						  	<img src="static/images/plus.png" alt=""/>
+						  	<ul class="icon1 sub-icon1 profile_img">
+							  <li><a class="active-icon c1" href="javascript:;">
+								  Dat ve </a>
+								{% if p.is_show %}
+								<ul class="sub-icon1 list">
+									<li class="click-service"><a href="/flight?flight={{ p.flight_id }}&type=VIP"><h3 class="service-title">Đặt vé Thương Gia</h3></a></li>
+									<li class="click-service"><a href="/flight?flight={{ p.flight_id }}&type=NORMAL"><h3 class="service-title">Đặt vé Phổ Thông</h3></a></li>
+								</ul>
+								  {% else %}
+								  	<ul class="sub-icon1 list">
+									<li class="text-danger">Đã hết thời gian đặt vé</li>
+
+								</ul>
+								  {% endif %}
+							  </li>
+							 </ul>
+						   </li>
+					     </ul>
+			    	    <div class="clear"></div>
+			    	</a>
+				</div>
+					   		{% endif %}
+					   	{% endfor %}
+			  		</div>
+			  </div>
+			 </div>
+	</div>
+{% endblock %}

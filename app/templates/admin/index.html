@@ -1,0 +1,518 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+
+{% if current_user.is_authenticated %}
+<!--Main layout-->
+<div class="container" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+     xmlns="http://www.w3.org/1999/html">
+  <!--Section: News of the day-->
+  <section class="border-bottom pb-4 mb-5">
+    <div class="row gx-5">
+      <div class="col-md-6 mb-4">
+        <div class="bg-image hover-overlay ripple shadow-2-strong rounded-5"
+          data-mdb-ripple-color="light">
+          <img src="https://vivavivu.com/Upload/Images/Airline/img/ve-may-bay-gia-re-jetstar-pacific-vivavivu.jpg" class="img-fluid" />
+          <a href="#!">
+            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-md-6 mb-4">
+        <span class="badge bg-danger px-2 py-1 shadow-1-strong mb-3">Chuyến bay mới nhất</span>
+        <h4><strong>Boing 777</strong></h4>
+        <p class="text-muted">
+          Lịch trình cả quốc tế và trong nước. Đảm bảo 100% độ hài lòng.
+        </p>
+        <button type="button" class="btn btn-primary">Mang đi Marketing</button>
+      </div>
+    </div>
+  </section>
+  <!--Section: News of the day-->
+
+  <!--Section: Content-->
+  <section>
+    <div class="row gx-lg-5">
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong ripple rounded-5 mb-4"
+            data-mdb-ripple-color="light">
+            <img src="https://th.bing.com/th/id/OIP.ALoLIq8q_a6i41IwqkwoTgHaEC?w=306&h=180&c=7&r=0&o=5&pid=1.7" class="img-fluid" />
+            <a href="##">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-info">
+                <i class="fas fa-plane"></i>
+                Travels
+              </a>
+            </div>
+
+            <div class="col-6 text-end">
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>Thống kê độ hài lòng của khách hàng</h5>
+
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+              id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+              adipisci iusto nam temporibus modi animi laboriosam?
+            </p>
+          </a>
+
+          <hr />
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Nxon5ouY7LJlSQgbrVn8rAHaD4?w=345&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát khách hàng</strong></p>
+                <p>
+                  <u> 12-06-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Nxon5ouY7LJlSQgbrVn8rAHaD4?w=345&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát khách hàng</strong></p>
+                <p>
+                  <u> 15-07-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Nxon5ouY7LJlSQgbrVn8rAHaD4?w=345&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát khách hàng</strong></p>
+                <p>
+                  <u> 15-08-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Nxon5ouY7LJlSQgbrVn8rAHaD4?w=345&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát khách hàng</strong></p>
+                <p>
+                  <u> 21-08-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- News block -->
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
+            data-mdb-ripple-color="light">
+            <img src="https://th.bing.com/th/id/OIF.tyTuhmKc5GkBYv9kLN85YA?w=283&h=180&c=7&r=0&o=5&pid=1.7" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-danger">
+                <i class="fas fa-chart-pie"></i>
+                Business
+              </a>
+            </div>
+
+            <div class="col-6 text-end">
+              <u> 15-07-2020</u>
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>Quản lí đội ngũ nhân viên</h5>
+            </br>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+              id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+              adipisci iusto nam temporibus modi animi laboriosam?
+            </p>
+          </a>
+
+          <hr />
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://getflycrm.com/wp-content/uploads/2016/07/khach-hang-tiem-nang.jpg"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Cuộc họp quý</strong></p>
+                <p>
+                  <u> 21-06-2021</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Agi-_w-wUo_GiQTXHmIcGwHaE0?w=284&h=185&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát đội ngũ an ninh</strong></p>
+                <p>
+                  <u> 15-07-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.Y39WwGKmCqp8DLYmWFGK0QHaE7?w=266&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát đội ngũ phi công</strong></p>
+                <p>
+                  <u> 21-08-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIF.tyTuhmKc5GkBYv9kLN85YA?w=283&h=180&c=7&r=0&o=5&pid=1.7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Khảo sát dội ngũ tiếp viên</strong></p>
+                <p>
+                  <u> 30-07-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- News block -->
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <!-- News block -->
+        <div>
+          <!-- Featured image -->
+          <div class="bg-image hover-overlay shadow-1-strong rounded-5 ripple mb-4"
+            data-mdb-ripple-color="light">
+            <img src="https://th.bing.com/th/id/OIP.S3XBPFYPVIMUa1_Cj1RcnQHaDt?w=285&h=175&c=7&r=0&o=5&pid=1.7" class="img-fluid" />
+            <a href="#!">
+              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+            </a>
+          </div>
+          <!-- Article data -->
+          <div class="row mb-3">
+            <div class="col-6">
+              <a href="" class="text-warning">
+                <i class="fas fa-code"></i>
+                Technology
+              </a>
+            </div>
+          </div>
+
+          <!-- Article title and description -->
+          <a href="" class="text-dark">
+            <h5>Quản lí phần mềm thống kê</h5>
+            </br>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, iste aliquid. Sed
+              id nihil magni, sint vero provident esse numquam perferendis ducimus dicta
+              adipisci iusto nam temporibus modi animi laboriosam?
+            </p>
+          </a>
+
+          <hr />
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.DND5mVEVc9d-qv8vaYf-7wHaDR?pid=ImgDet&w=174&h=77&c=7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Thống kê dữ liệu quý 3</strong></p>
+                <p>
+                  <u> 12.11.2021</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://d5hzforevvmuq.cloudfront.net/wp-content/uploads/2021/10/16091935/bieu-do-vnindex-1.jpg"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Thống kê doanh thu</strong></p>
+                <p>
+                  <u> 30-07-2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://d5hzforevvmuq.cloudfront.net/wp-content/uploads/2021/10/16091935/bieu-do-vnindex-1.jpg"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Thống kê chuyến bay</strong></p>
+                <p>
+                  <u> 24-08-2021</u>
+                </p>
+              </div>
+            </div>
+          </a>
+
+          <!-- News -->
+          <a href="" class="text-dark">
+            <div class="row mb-4 border-bottom pb-2">
+              <div class="col-3">
+                <img src="https://th.bing.com/th/id/OIP.dWLxFcYRFh2jydTgAGFgHAHaFX?pid=ImgDet&w=174&h=126&c=7"
+                  class="img-fluid shadow-1-strong rounded" alt="" />
+              </div>
+
+              <div class="col-9">
+                <p class="mb-2"><strong>Sàn chứng khoán</strong></p>
+                <p>
+                  <u> 15.07.2020</u>
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+        <!-- News block -->
+      </div>
+    </div>
+  </section>
+  <!--Section: Content-->
+
+  <!-- Pagination -->
+  <nav class="my-4" aria-label="...">
+    <ul class="pagination pagination-circle justify-content-center">
+      <li class="page-item">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">1</a></li>
+      <li class="page-item active" aria-current="page">
+        <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="page-item"><a class="page-link" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<!--Main layout-->
+{% else %}
+    {% include 'layout/layout_admin/login.html' %}
+{% endif %}
+{% endblock %}
+
+{% block footer %}
+{% if current_user.is_authenticated %}
+    <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between border-bottom" style="padding: 1rem 10rem"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Quản lí marketing:  </span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-facebook-f" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-twitter" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-google" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-instagram" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-linkedin" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+      <a href="" class="mr-4 text-reset">
+        <i class="fab fa-github" style="font-size: 20px; color: #6c757d"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4" style="font-size: 24px">
+            <i class="fas fa-plane-departure mr-3" style="font-size: 40px"></i>Bug Airlines
+          </h6>
+          <p>
+            Bug Airlines tự hào là Hãng hàng không quốc tế 4 sao. Xin trân trọng cảm ơn sự đồng hành của Quý khách và bạn hàng!
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Bug Airline
+          </h6>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Giới thiệu công ty</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Thống kê đôi bay</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Thống kê đối tác</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Thống kê doanh thu</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Quan Hệ Cổ Đông</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Pháp Lý
+          </h6>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Các điều kiện & điều khoản</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Điều Lệ Vận Chuyển</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Bảo Mật Thông Tin</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset" style="color: #6c757d">Quy Chế Hoạt Động Sàn MTDT</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Quản lí liên lạc
+          </h6>
+          <p><i class="fas fa-home me-3"></i> Sai Gon, Q1 2000, VIE</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 84 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 84 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center" style="background-color: rgba(0, 0, 0, 0.05); padding: 1rem 10rem; font-size: 12px">
+    © 2021 Copyright:
+    <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Bugteam.dev</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+{% endif%}
+{% endblock %}

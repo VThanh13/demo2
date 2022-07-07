@@ -1,0 +1,104 @@
+{% extends 'layout/layout_staff/base.html'%}
+
+
+{% block content %}
+
+<!----->
+       <div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+        <div class="grid-form1">
+            <h3 id="forms-inline ">Tra cứu khách hàng</h3>
+
+            <form action="/staff-check-user" method="post" class="form-inline">
+              <div class="form-group">
+                <label for="exampleInputName2" class="mr-2">Họ Tên</label>
+                <input value="{{user.fullname}}" name="fullname" type="text" class="form-control mr-4" id="exampleInputName2" placeholder="Họ Tên">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputEmail2" class="mr-2">CMND/Căn cước</label>
+                <input value="{{user.identify}}" name="identify" type="text" class="form-control mr-4" id="exampleInputEmail2" placeholder="CMND/Căn cước">
+              </div>
+              <button type="submit" class="btn btn-default btn-send btn-bg">Tra cứu</button>
+            </form>
+
+        </div>
+
+        <div class="spacer">
+        </div>
+
+            <div class=" profile">
+
+            <div class="profile-bottom">
+                <h3><i class="fa fa-user"></i>Thông tin khách hàng</h3>
+                <div class="profile-bottom-top">
+                <div class="col-md-4 profile-bottom-img">
+                    <img src="images/pr.jpg" alt="">
+                </div>
+					<div class="container">
+						<div class="row">
+
+							<div class="col-md-offset-1">
+							<div class="booking-form">
+               <form action="/staff-edit-customer" method="post" enctype="multipart/form-data">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Họ Tên</span>
+												<input value="{{user.fullname}}" name="fullname" class="form-control" type="text" placeholder="Họ tên" required>
+											</div>
+										</div>
+
+										<div class="col-md-6">
+                                            <div class="form-group">
+                                                <span class="form-label">Ngày sinh</span>
+                                                <input value="{{user.birthday}}" name="birthday" class="form-control" type="date" required >
+                                            </div>
+                                        </div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Email</span>
+												<input value="{{user.email}}" name="email" class="form-control" type="email" placeholder="Email" required>
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">CMND/Căn cước</span>
+												<input value="{{user.identify}}" name="identify" class="form-control" type="text" placeholder="CMND/Căn cước" required>
+											</div>
+										</div>
+									</div>
+                                    <div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Số điện thoại</span>
+												<input value="{{user.phone}}" name="phone" class="form-control" type="text" placeholder="Số điện thoại" required>
+											</div>
+										</div>
+
+									</div>
+
+
+									<div class="form-btn">
+										<button class="submit-btn" type="submit">Lưu</button>
+									</div>
+								</form>
+							</div>
+							</div>
+						</div>
+					</div>
+
+            </div>
+        </div>
+
+
+
+		<div class="clearfix"> </div>
+       </div>
+     </div>
+	   </div>
+<!---->
+<!--scrolling js-->
+{% endblock %}

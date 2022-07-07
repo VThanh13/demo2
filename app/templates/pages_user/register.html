@@ -1,0 +1,75 @@
+{% extends 'layout/layout_user/base.html' %}
+{% block title %}
+	ĐĂNG KÝ
+{% endblock %}
+
+{% block header %}
+	<div class="header-top">
+		<div class="wrap wrap--flex">
+		   <div class="logo">
+			   <a href="/" class="text-white">
+				   <i class="fas fa-plane-departure mr-0-5"></i>
+				   BUG AIRLINES
+			   </a>
+		   </div>
+		   <div class="cssmenu">
+			    <ul>
+				<li class="active"><a href="/login">ĐĂNG NHẬP</a></li>
+			  </ul>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+	  </div>
+{% endblock %}
+
+{% block content %}
+    <div class="register_account">
+          	<div class="wrap">
+    	      <h4 class="title">Tạo tài khoản</h4>
+				{% if error_message %}
+					<div class="alert alert-danger">
+						{{ error_message }}
+					</div>
+				{% endif %}
+    		   <form action="/register" method="post" enctype="multipart/form-data">
+    			 <div class="col_1_of_2 span_1_of_2">
+					<p>
+						<input type="text" value="" placeholder="Họ tên" name="fullname" required autofocus>
+					</p>
+					<p>
+						<input type="text" value="" placeholder="Tài khoản" name="username"  required>
+					</p>
+					<p>
+						<input type="password" value="" placeholder="Mật khẩu" name="password" required  class="form__input">
+					</p>
+					<p>
+						<input type="password" value="" placeholder="Xác nhận mật khẩu" name="confirm_password" class="form__input" required>
+					</p>
+		    	 </div>
+		    	  <div class="col_1_of_2 span_1_of_2">
+					<p>
+						<input type="date" value="" placeholder="Ngày sinh" name="birthday" required  class="form__input">
+					</p>
+					<p>
+						<input type="email" value="" placeholder="Email" name="email" class="form__input" required>
+					</p>
+					<p>
+						<input type="text" value="" placeholder="CMND/ Căn cước" name="identify" required  >
+					</p>
+					<p>
+						<input type="text" value="+84" class="code" disabled> - <input type="text" value="" placeholder="Số điện thoại" name="phone" class="number" required>
+					</p>
+		          	 <p class="code">Mã khu vực + Số điện thoại</p>
+					  <p>
+						<input type="text" value="Avatar: " class="code" disabled>  <input type="file" value="" name="avatar" class="number">
+					</p>
+		          </div>
+		         <div class="">
+					<button class="grey" type="submit">Đăng kí</button>
+					<p class="terms">Đăng kí là bạn đã đồng ý với điều khoản của chúng tôi <a href="#">Terms &amp; Conditions</a>.</p>
+				 </div>
+		         <div class="clear"></div>
+		    </form>
+    	  </div>
+        </div>
+{% endblock %}

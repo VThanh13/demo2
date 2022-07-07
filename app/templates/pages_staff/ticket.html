@@ -1,0 +1,91 @@
+{% extends 'layout/layout_staff/base.html'%}
+
+
+{% block content %}
+
+<div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+        <div id="booking" class="section">
+            <div class="grid-form1">
+                <h3 id="forms-inline ">Đặt vé</h3>
+                <form class="form-inline" action="/staff-cart" method="post">
+                  <div class="form-group">
+                    <label for="fullname" class="mr-2">Họ Tên Khách Hàng</label>
+                    <input type="text" class="form-control mr-4" id="fullname" placeholder="Họ Tên" name="fullname" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="identify" class="mr-2">CMND/Căn cước</label>
+                    <input type="text" class="form-control mr-4" id="identify" placeholder="CMND/Căn cước" name="identify" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="mr-2">Số điện thoại</label>
+                    <input type="text" class="form-control mr-4" id="phone" placeholder="Số điện thoại" name="phone" required>
+                  </div>
+
+
+            <div class="spacer">
+            </div>
+            <div class="cart">
+                <div class="cart-bottom">
+                     <div class="table" style="background-color: rgb(244, 252, 247);">
+                         <table>
+                             <tbody>
+                               <tr  class="main-heading">
+                                  <th></th>
+                                  <th class="long-txt">Mô tả</th>
+                                  <th>Giá Chuyến Bay</th>
+                                  <th>Giá Dịch Vụ</th>
+                              </tr>
+                               {% for p in get_flight %}
+                              <tr class="cake-top">
+
+                                  <td class="cakes">
+                                      <div class="product-img">
+                                          <img src="https://www.vemaybayhanquoc.com/wp-content/uploads/2020/11/ve-may-bay-di-han-quoc-vietnam-airlines.jpg" style="width: 50%;">
+                                      </div>
+                                 </td>
+                                 <td class="cake-text">
+                                      <div class="product-text">
+                                          <h3>Nơi đi: {{p.from}}</h3>
+                                          <h3>Nơi đến: {{p.to}}</h3>
+                                          <p>Thời gian: {{p.date_start}} {{p.time_start}}</p>
+                                          <p>Máy bay: VN300</p>
+                                      </div>
+                               </td>
+                                  <td class="price">
+                                      <h4>{{ p.price }} VND</h4>
+                                  </td>
+                                  <td class="top-remove">
+                                      <h4>{{ p.price_service }} VND</h4>
+                                  </td>
+
+                              </tr>
+                             {% endfor %}
+                            </tbody>
+
+                         </table>
+                     </div>
+                     <div class="vocher">
+                         <div class="dis-total">
+                             {% for i in get_flight %}
+                             <h1>Tổng tiền: {{i.price_total}} VND</h1>
+                             <div class="tot-btn">
+                                 <a href="/staff">Quay lại trang tìm kiếm</a>
+                                 <input type="submit"  class="check" onclick="addToCart( {{i.flight_id}}, '{{i.from}}', '{{ i.to }}'
+							  	, {{ i.date_start }}, '{{ i.time_start }}', {{ i.ticket_id }}, {{ i.price }}, {{ i.price_service }}, {{ i.price_total }})"
+                                 value="Đặt vé" >
+                             </div>
+                             {% endfor %}
+                         </div>
+                       <div class="clear"> </div>
+                     </div>
+                </div>
+             </div>
+            </form>
+        </div>
+        </div>
+        </div>
+        <div class="clearfix"> </div>
+       </div>
+{% endblock %}
+

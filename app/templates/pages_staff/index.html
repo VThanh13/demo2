@@ -1,0 +1,78 @@
+{% extends 'layout/layout_staff/base.html'%}
+
+
+{% block content %}
+
+
+
+<!----->
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+       <div class="content-main">
+        <div id="booking" class="section">
+			<div class="section-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-4">
+							<div class="booking-cta">
+								<h1>Đặt vé ngay bây giờ</h1>
+								<p>Đi nhanh an toàn - Khởi hành bình an</p>
+							</div>
+						</div>
+						<div class="col-md-7 col-md-offset-1">
+							<div class="booking-form">
+								<form action="/staff-show">
+									<div class="form-group">
+										<div class="form-checkbox">
+											<label for="one-way">
+												<input type="radio" checked id="one-way" >
+												<span></span>Một chiều
+											</label>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Địa điểm khởi hành</span>
+												<input name="kw1" class="form-control" type="text" placeholder="City to">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Địa diểm đến</span>
+												<input name="kw2" class="form-control" type="text" placeholder="City from">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Ngày đi</span>
+												<input name="kw3" class="form-control" type="date" required>
+											</div>
+										</div>
+										<!-- <div class="col-md-6">
+											<div class="form-group">
+												<span class="form-label">Ngày trở về (Nếu có)</span>
+												<input class="form-control" type="date" required>
+											</div>
+										</div> -->
+									</div>
+									<div class="form-btn">
+										<button class="submit-btn">Tra Cứu Chuyến Bay</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="clearfix"> </div>
+       </div>
+
+<!---->
+<!--scrolling js-->
+{% endblock%}
+
+
